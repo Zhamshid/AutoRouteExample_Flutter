@@ -12,7 +12,20 @@ class _NewPageState extends State<NewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen,
         title: const Text("New Page"),
+      ),
+      body: Container(
+        color: Colors.lightGreen,
+        child: const Center(
+          child: Text(
+            "New Page",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+            ),
+          ),
+        ),
       ),
     );
   }
