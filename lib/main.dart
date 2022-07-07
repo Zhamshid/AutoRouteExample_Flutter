@@ -1,4 +1,4 @@
-import 'package:auto_rotate_test/routes/router.gr.dart';
+import 'package:auto_rotate_test/routes/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {

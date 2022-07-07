@@ -1,4 +1,4 @@
-import 'package:auto_rotate_test/routes/router.gr.dart';
+import 'package:auto_rotate_test/routes/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class _FirstPageState extends State<FirstPage> {
           MaterialButton(
             color: Colors.white,
             onPressed: () {
-              context.router.push(ViewHistoryRoute());
+              context.router.push(const ViewHistoryRoute());
             },
             height: 40,
             textColor: Colors.blueGrey,
@@ -29,18 +29,18 @@ class _FirstPageState extends State<FirstPage> {
             ),
             child: const Text("Click to route like Fragment"),
           ),
-          // MaterialButton(
-          //   color: Colors.blue,
-          //   onPressed: () {
-          //     context.router.push(NewPageRoute());
-          //   },
-          //   height: 40,
-          //   textColor: Colors.white,
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(50),
-          //   ),
-          //   child: const Text("Click to route like new Page"),
-          // ),
+          MaterialButton(
+            color: Colors.blue,
+            onPressed: () {
+              context.router.push(NewPageRoute());
+            },
+            height: 40,
+            textColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: const Text("Click to route like new Page"),
+          ),
         ],
       ),
     );

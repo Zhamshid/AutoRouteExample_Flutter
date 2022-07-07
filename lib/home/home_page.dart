@@ -1,4 +1,4 @@
-import 'package:auto_rotate_test/routes/router.gr.dart';
+import 'package:auto_rotate_test/routes/router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -17,38 +17,45 @@ const List<PageRouteInfo<dynamic>> myRoutes = [
 
 class _HomePageState extends State<HomePage> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Auto Route Test"),
-        backgroundColor: Colors.blueGrey,
-      ),
-      body: AutoTabsScaffold(
-        routes: myRoutes,
-        bottomNavigationBuilder: (_, tabsRouter) {
-          return BottomNavigationBar(
-            backgroundColor: Colors.blueGrey,
-            currentIndex: tabsRouter.activeIndex,
-            unselectedItemColor: Colors.grey,
-            selectedItemColor: Colors.white,
-            onTap: tabsRouter.setActiveIndex,
-            items: const [
-              BottomNavigationBarItem(
-                label: 'First',
-                icon: Icon(Icons.home),
-              ),
-              BottomNavigationBarItem(
-                label: 'Second',
-                icon: Icon(Icons.history),
-              ),
-              BottomNavigationBarItem(
-                label: 'Third',
-                icon: Icon(Icons.person),
-              ),
-            ],
+  Widget build(BuildContext context) => AutoTabsRouter(
+        routes: const [
+          FirstRouter(),
+          SecondRouter(),
+          ThirdRouter(),
+        ],
+        builder: (context, child, animation) {
+          final tabsRouter = AutoTabsRouter.of(context);
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text("Auto Route Test"),
+              backgroundColor: Colors.blueGrey,
+            ),
+            body: FadeTransition(
+              opacity: animation,
+              child: child,
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: Colors.blueGrey,
+              currentIndex: tabsRouter.activeIndex,
+              unselectedItemColor: Colors.grey,
+              selectedItemColor: Colors.white,
+              onTap: tabsRouter.setActiveIndex,
+              items: const [
+                BottomNavigationBarItem(
+                  label: 'First',
+                  icon: Icon(Icons.home),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Second',
+                  icon: Icon(Icons.history),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Third',
+                  icon: Icon(Icons.person),
+                ),
+              ],
+            ),
           );
         },
-      ),
-    );
-  }
+      );
 }

@@ -10,112 +10,116 @@
 //
 // ignore_for_file: type=lint
 
-import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i7;
+part of 'router.dart';
 
-import '../home/home_page.dart' as _i1;
-import '../pages/first_page.dart' as _i5;
-import '../pages/second_page.dart' as _i3;
-import '../pages/third_page.dart' as _i4;
-import '../pages/view_history_page.dart' as _i6;
-
-class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+class _$AppRouter extends RootStackRouter {
+  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
+  final Map<String, PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.HomePage());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const HomePage());
+    },
+    NewPageRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const NewPage());
     },
     FirstRouter.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i2.EmptyRouterPage());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const EmptyRouterPage());
     },
     SecondRouter.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.SecondPage());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const SecondPage());
     },
     ThirdRouter.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.ThirdPage());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ThirdPage());
     },
     FirstRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i5.FirstPage());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const FirstPage());
     },
     ViewHistoryRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i6.ViewHistoryPage());
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const ViewHistoryPage());
     }
   };
 
   @override
-  List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(HomeRoute.name, path: '/', children: [
-          _i2.RouteConfig(FirstRouter.name,
+  List<RouteConfig> get routes => [
+        RouteConfig(HomeRoute.name, path: '/', children: [
+          RouteConfig(FirstRouter.name,
               path: 'first',
               parent: HomeRoute.name,
               children: [
-                _i2.RouteConfig(FirstRoute.name,
+                RouteConfig(FirstRoute.name,
                     path: '', parent: FirstRouter.name),
-                _i2.RouteConfig(ViewHistoryRoute.name,
+                RouteConfig(ViewHistoryRoute.name,
                     path: 'viewHistory', parent: FirstRouter.name)
               ]),
-          _i2.RouteConfig(SecondRouter.name,
+          RouteConfig(SecondRouter.name,
               path: 'second', parent: HomeRoute.name),
-          _i2.RouteConfig(ThirdRouter.name,
-              path: 'third', parent: HomeRoute.name)
-        ])
+          RouteConfig(ThirdRouter.name, path: 'third', parent: HomeRoute.name)
+        ]),
+        RouteConfig(NewPageRoute.name, path: 'new')
       ];
 }
 
 /// generated route for
-/// [_i1.HomePage]
-class HomeRoute extends _i2.PageRouteInfo<void> {
-  const HomeRoute({List<_i2.PageRouteInfo>? children})
+/// [HomePage]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
       : super(HomeRoute.name, path: '/', initialChildren: children);
 
   static const String name = 'HomeRoute';
 }
 
 /// generated route for
-/// [_i2.EmptyRouterPage]
-class FirstRouter extends _i2.PageRouteInfo<void> {
-  const FirstRouter({List<_i2.PageRouteInfo>? children})
+/// [NewPage]
+class NewPageRoute extends PageRouteInfo<void> {
+  const NewPageRoute() : super(NewPageRoute.name, path: 'new');
+
+  static const String name = 'NewPageRoute';
+}
+
+/// generated route for
+/// [EmptyRouterPage]
+class FirstRouter extends PageRouteInfo<void> {
+  const FirstRouter({List<PageRouteInfo>? children})
       : super(FirstRouter.name, path: 'first', initialChildren: children);
 
   static const String name = 'FirstRouter';
 }
 
 /// generated route for
-/// [_i3.SecondPage]
-class SecondRouter extends _i2.PageRouteInfo<void> {
+/// [SecondPage]
+class SecondRouter extends PageRouteInfo<void> {
   const SecondRouter() : super(SecondRouter.name, path: 'second');
 
   static const String name = 'SecondRouter';
 }
 
 /// generated route for
-/// [_i4.ThirdPage]
-class ThirdRouter extends _i2.PageRouteInfo<void> {
+/// [ThirdPage]
+class ThirdRouter extends PageRouteInfo<void> {
   const ThirdRouter() : super(ThirdRouter.name, path: 'third');
 
   static const String name = 'ThirdRouter';
 }
 
 /// generated route for
-/// [_i5.FirstPage]
-class FirstRoute extends _i2.PageRouteInfo<void> {
+/// [FirstPage]
+class FirstRoute extends PageRouteInfo<void> {
   const FirstRoute() : super(FirstRoute.name, path: '');
 
   static const String name = 'FirstRoute';
 }
 
 /// generated route for
-/// [_i6.ViewHistoryPage]
-class ViewHistoryRoute extends _i2.PageRouteInfo<void> {
+/// [ViewHistoryPage]
+class ViewHistoryRoute extends PageRouteInfo<void> {
   const ViewHistoryRoute() : super(ViewHistoryRoute.name, path: 'viewHistory');
 
   static const String name = 'ViewHistoryRoute';
