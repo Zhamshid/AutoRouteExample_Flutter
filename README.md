@@ -1,4 +1,4 @@
-# auto_rotate_test
+# auto_route_test
 
 A new Flutter project.
 
